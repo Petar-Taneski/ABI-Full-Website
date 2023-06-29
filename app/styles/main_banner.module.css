@@ -1,0 +1,38 @@
+.box-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-color: #f5f7f8;
+  }
+
+  .box-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .box-container h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .box-container p {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f7f8;
+  }
+  
+  .logoSecOne {
+    max-width: 100%;
+    height: auto;
+  }
