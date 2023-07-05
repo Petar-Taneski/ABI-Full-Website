@@ -1,9 +1,9 @@
-
+'use client'
 import React from 'react';
 import styles from '../styles/main_banner.module.css'
 import { Box, Text} from '@chakra-ui/react';
 
-const Programs = () => {
+const MainBanner = () => {
   return (
     <section className={styles.boxContainer}>
         <Box
@@ -29,4 +29,4 @@ const Programs = () => {
   );
 };
 
-export default Programs;
+export default MainBanner;

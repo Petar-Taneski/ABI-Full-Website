@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Box, Text, Flex,Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, ButtonGroup, Button, StylesProvider } from '@chakra-ui/react';
 import styles from '../styles/footer.module.css'

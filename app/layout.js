@@ -1,13 +1,15 @@
-import { ChakraProvider} from '@chakra-ui/react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+'use client'
+import { ChakraProvider } from '@chakra-ui/react';
+
 
 const Layout = ({ children }) => {
+
+
   return (
     <ChakraProvider>
-      <Navbar />
-      {children}
-      <Footer />
+      
+        {children}
+      
     </ChakraProvider>
   );
 };

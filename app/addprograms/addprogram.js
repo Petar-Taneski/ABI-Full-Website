@@ -1,33 +1,39 @@
 'use client'
-import { useQuery } from 'react-query';
 import { Text, Flex } from '@chakra-ui/react';
 import { Cards } from './program_cards_components/Cards';
 import { db } from '../../firebase';
 
+export const revalidate=0
 
-const ProgramsSection = () => {
-  const { data: programs, isLoading } = useQuery('programs', async () => {
-    const snapshot = await db.collection('programs').get();
-    return snapshot.docs.map((doc) => ({
-      ID: doc.id,
-      ...doc.data(),
-    }));
-  });
+export async function getServerSideProps() {
+  const snapshot = await db.collection('programs').get();
+  const programs = snapshot.docs.map((doc) => ({
+    ID: doc.id,
+    ...doc.data(),
+  }));
 
+  return {
+    props: {
+      programs,
+    },
+  };
+}
+
+const ProgramsSection = ({ programs }) => {
   return (
     <>
       <Text as="h2" fontSize="1.5rem" fontWeight="bold" textAlign="center" py={4} padding="20px">
         Most popular programs
       </Text>
 
-      {isLoading ? (
-        <Text as="h2" fontSize="1.5rem" fontWeight="bold" textAlign="center" py={4} padding="20px">
-          Please wait...
-        </Text>
-      ) : (
+      {programs ? (
         <Flex direction="row" flexWrap="wrap" justifyContent="space-around">
           <Cards programs={programs} />
         </Flex>
+      ) : (
+        <Text as="h2" fontSize="1.5rem" fontWeight="bold" textAlign="center" py={4} padding="20px">
+          Loading...
+        </Text>
       )}
     </>
   );
